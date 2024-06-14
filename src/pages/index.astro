@@ -1,9 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Badge from "../components/Badge.astro";
-import LinkedInIcon from "../components/icons/LinkedIn.astro";
-import GitHubIcon from "../components/icons/GitHub.astro";
-import MailIcon from "../components/icons/Mail.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Experience from "../components/Experience.astro";
+import LinkedInIcon from "../icons/LinkedIn.astro";
+import GitHubIcon from "../icons/GitHub.astro";
+import MailIcon from "../icons/Mail.astro";
+import Briefcase from "../icons/Briefcase.astro";
 import SocialPill from "../components/SocialPill.astro";
 ---
 
@@ -12,7 +15,7 @@ import SocialPill from "../components/SocialPill.astro";
   description="Contrata a Lautaro Décima para crear tu aplicacion web."
 >
   <main>
-    <section class="w-full mx-auto lg:w-[840px] py-44">
+    <SectionContainer class="py-44 pb-24">
       <img
         class="rounded-full size-12 mb-4"
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7Z5XPeQmFv4V2iGYn6hsT-e0D8o4NtlUXeQ&s"
@@ -44,11 +47,19 @@ import SocialPill from "../components/SocialPill.astro";
           <GitHubIcon class="size-6" />
           GitHub
         </SocialPill>
-        <SocialPill href="http://github.com/decimalautaro">
+        <SocialPill href="decimalautaro@gmail.com">
           <MailIcon class="size-6" />
           decimalautaro@gmail.com
         </SocialPill>
       </nav>
-    </section>
+    </SectionContainer>
+
+    <SectionContainer id="experience">
+      <h2 class="text-2xl font-semibold mb-6 flex gap-x-3 item-center">
+        <Briefcase class="size-7" />
+        Experiencia laboral
+      </h2>
+      <Experience />
+    </SectionContainer>
   </main>
 </Layout>

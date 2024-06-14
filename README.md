@@ -60,3 +60,5 @@ https://bg.ibelick.com/
 ## Link de donde saco los iconos:
 
 https://svgl.app/
+
+https://tabler.io/icons/

@@ -1,0 +1,111 @@
+---
+import CssIcon from "../icons/Css.astro";
+import DockerIcon from "../icons/Docket.astro";
+import HtmlIcon from "../icons/Html.astro";
+import JavascriptIcon from "../icons/Javascript.astro";
+import MongoDBIcon from "../icons/MongoDB.astro";
+import NestjsIcon from "../icons/Nestjs.astro";
+import NodejsIcon from "../icons/Nodejs.astro";
+import PostgresIcon from "../icons/Postgres.astro";
+import TypeOrmIcon from "../icons/TypeORM.astro";
+import TypescriptIcon from "../icons/Typescript.astro";
+
+const TAGS = {
+  NODEJS: {
+    name: "Node.js",
+    icon: NodejsIcon,
+  },
+  NESTJS: {
+    name: "Nest.js",
+    icon: NestjsIcon,
+  },
+  HTML: {
+    name: "HTML",
+    icon: HtmlIcon,
+  },
+  CSS: {
+    name: "CSS",
+    icon: CssIcon,
+  },
+  TYPESCRIPT: {
+    name: "Typescript",
+    icon: TypescriptIcon,
+  },
+  JAVASCRIPT: {
+    name: "Javascript",
+    icon: JavascriptIcon,
+  },
+  DOCKER: {
+    name: "Docker",
+    icon: DockerIcon,
+  },
+  MONGODB: {
+    name: "MongoDB",
+    icon: MongoDBIcon,
+  },
+  POSTGRES: {
+    name: "PostgreSQL",
+    icon: PostgresIcon,
+  },
+  TYPEORM: {
+    name: "TypeORM",
+    icon: TypeOrmIcon,
+  },
+};
+
+const PROJECTS = [
+  {
+    title: "App de colas - Websockets",
+    description: "Aplicacion de colas con websockets",
+    github: "https://github.com/decimalautaro/websocket-app-colas",
+    image: "/projects/app-colas-websocket.webp",
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT, TAGS.TYPESCRIPT],
+  },
+  {
+    title: "Ecommerce - Nestjs",
+    description: "API REST desarrollada con Nest.js",
+    github: "#",
+    image: "/projects/ecommerce.webp",
+    tags: [
+      TAGS.NESTJS,
+      TAGS.TYPESCRIPT,
+      TAGS.POSTGRES,
+      TAGS.DOCKER,
+      TAGS.TYPEORM,
+    ],
+  },
+  {
+    title: "Social Network - Node.js",
+    description:
+      "API REST desarrollada con Node.js, Typescript usando una base de datos no relacional (MongoDB)",
+    github: "https://github.com/decimalautaro/social-network-nodejs",
+    image: "/projects/twiter.webp",
+    tags: [TAGS.NODEJS, TAGS.TYPESCRIPT, TAGS.MONGODB, TAGS.DOCKER],
+  },
+];
+---
+
+{
+  PROJECTS.map(({ title, description, tags, image }) => (
+    <article>
+      <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+      <p class="text-lg mb-4 text-pretty">{description}</p>
+      <ul class="flex gap-x-4 flex-row mb-2">
+        {tags.map((tag) => (
+          <li>
+            <span class="flex gap-x-2 rounded-full text-xs py-1 px-2">
+              <tag.icon />
+              {tag.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+
+      <img
+        class="rounded shadow-2xl shadow-white/10"
+        src={image}
+        alt={`Captura de pantalla del proyecto ${image}`}
+      />
+    </article>
+  ))
+}

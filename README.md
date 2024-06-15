@@ -57,8 +57,20 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 
 https://bg.ibelick.com/
 
-## Link de donde saco los iconos:
+### Link de donde saco los iconos:
 
 https://svgl.app/
 
 https://tabler.io/icons/
+
+### Timeline:
+
+https://flowbite.com
+
+### Web para retocar imagenes:
+
+https://shots.so
+
+### Web para optimizar imagenes (.webp):
+
+https://squoosh.app/editor

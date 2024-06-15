@@ -63,9 +63,13 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 
 ### Link de donde saco los iconos:
 
-`https://svgl.app/`
+- color
 
-`https://tabler.io/icons/`
+  `https://svgl.app/`
+
+- blanco y negro
+
+  `https://tabler.io/icons/`
 
 ### Timeline:
 

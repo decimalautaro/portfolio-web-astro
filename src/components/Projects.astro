@@ -6,9 +6,12 @@ import JavascriptIcon from "../icons/Javascript.astro";
 import MongoDBIcon from "../icons/MongoDB.astro";
 import NestjsIcon from "../icons/Nestjs.astro";
 import NodejsIcon from "../icons/Nodejs.astro";
+import JestIcon from "../icons/Jest.astro";
 import PostgresIcon from "../icons/Postgres.astro";
 import TypeOrmIcon from "../icons/TypeORM.astro";
 import TypescriptIcon from "../icons/Typescript.astro";
+import GitHub from "../icons/GitHub.astro";
+import LinkButton from "../components/LinkButton.astro";
 
 const TAGS = {
   NODEJS: {
@@ -51,20 +54,55 @@ const TAGS = {
     name: "TypeORM",
     icon: TypeOrmIcon,
   },
+  JEST: {
+    name: "Jest",
+    icon: JestIcon,
+  },
 };
 
 const PROJECTS = [
   {
     title: "App de colas - Websockets",
-    description: "Aplicacion de colas con websockets",
+    description: `Esta aplicación de colas con websockets funciona como un sistema de turnos,
+                  donde los usuarios pueden solicitar turnos desde una pantalla y visualizar en tiempo real desde otra pantalla
+                  los turnos solicitados y su atención en tiempo real. Esta aplicación modelo fue desarrollada con fines educativos
+                  para aprender sobre websockets, sin necesidad de utilizar un backend ni base de datos para su funcionamiento.`,
+
     github: "https://github.com/decimalautaro/websocket-app-colas",
     image: "/projects/app-colas-websocket.webp",
     tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT, TAGS.TYPESCRIPT],
   },
   {
+    title: "App-monitoreo - Node.js",
+    description: `Aplicación de consola de monitoreo utilizando Node.js y aplicando el patrón de arquitectura limpia (Clean Architecture). 
+                  Esta aplicación está diseñada para monitorear diversas APIs, almacenando datos simultáneamente en varias bases de datos. 
+                  Además, envía informes por correo electrónico a uno o varios usuarios. 
+                  Para asegurar la calidad del sistema, se implementaron pruebas unitarias utilizando Jest, cubriendo cada funcionalidad del sistema.
+                  Esta aplicación se destaca por su capacidad para gestionar múltiples fuentes de datos y comunicar de manera proactiva cualquier 
+                  irregularidad a través de informes detallados por correo electrónico, proporcionando así una herramienta esencial para la supervisión 
+                  continua y eficaz de servicios en línea.`,
+
+    github: "https://github.com/decimalautaro/app-monitoreo",
+    image: "/projects/app-monitoreo.webp",
+    tags: [
+      TAGS.NODEJS,
+      TAGS.TYPESCRIPT,
+      TAGS.POSTGRES,
+      TAGS.MONGODB,
+      TAGS.DOCKER,
+      TAGS.JEST,
+    ],
+  },
+  {
     title: "Ecommerce - Nestjs",
-    description: "API REST desarrollada con Nest.js",
-    github: "#",
+    description: `API REST utilizando Nest.js y TypeScript, simulando un ecommerce completo. Para la persistencia de datos,
+                  utilicé TypeORM, que facilita la generación de tablas y la gestión de relaciones entre ellas. Implementé relaciones
+                  de uno a uno (1:1), uno a muchos (1 a N) y muchos a muchos (N a N), asegurando una estructura robusta y eficiente 
+                  para el modelo de datos del ecommerce simulado. Esta configuración no solo permite la gestión integral de productos y usuarios, 
+                  sino también la interacción fluida entre diferentes entidades clave del sistema.`,
+
+    github:
+      "https://github.com/decimalautaro/Ecommerce-NestJS-TypeORM-PostgreSQL",
     image: "/projects/ecommerce.webp",
     tags: [
       TAGS.NESTJS,
@@ -76,8 +114,13 @@ const PROJECTS = [
   },
   {
     title: "Social Network - Node.js",
-    description:
-      "API REST desarrollada con Node.js, Typescript usando una base de datos no relacional (MongoDB)",
+    description: `API REST utilizando Node.js y TypeScript, utilizando MongoDB como base de datos no relacional. 
+                  Esta API está diseñada como un clon de la popular red social Twitter.
+                  MongoDB se seleccionó por su capacidad de almacenamiento flexible y su escalabilidad, lo que permite manejar 
+                  eficientemente las características dinámicas y el flujo constante de datos que caracterizan a las redes sociales. 
+                  La implementación incluye todas las funcionalidades principales de Twitter, como la gestión de perfiles de usuarios, 
+                  publicaciones de tweets, seguimiento de usuarios, y más, asegurando una experiencia de usuario robusta y ágil.`,
+
     github: "https://github.com/decimalautaro/social-network-nodejs",
     image: "/projects/twiter.webp",
     tags: [TAGS.NODEJS, TAGS.TYPESCRIPT, TAGS.MONGODB, TAGS.DOCKER],
@@ -86,26 +129,38 @@ const PROJECTS = [
 ---
 
 {
-  PROJECTS.map(({ title, description, tags, image }) => (
-    <article>
-      <h3 class="text-2xl font-semibold text-yellow-200 mb-2 mt-10">{title}</h3>
-      <p class="text-lg mb-4 text-pretty">{description}</p>
-      <ul class="flex gap-x-4 flex-row mb-2">
-        {tags.map((tag) => (
-          <li>
-            <span class="flex gap-x-2 rounded-full text-xs py-1 px-2">
-              <tag.icon />
-              {tag.name}
-            </span>
-          </li>
-        ))}
-      </ul>
+  PROJECTS.map(({ title, description, tags, image, github }) => (
+    <>
+      <article>
+        <h3 class="text-2xl font-semibold text-yellow-200 mb-2 mt-10">
+          {title}
+        </h3>
+        <p class="text-lg mb-4 text-pretty">{description}</p>
+        <ul class="flex gap-x-4 flex-row mb-2">
+          {tags.map((tag) => (
+            <li>
+              <span class="flex gap-x-2 rounded-full text-xs py-1 px-2">
+                <tag.icon />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
 
+        <footer class="flex items-end justify-start mt-4 gap-x-4 mb-4">
+          {github && (
+            <LinkButton href={github}>
+              <GitHub class="size-6" />
+              Code
+            </LinkButton>
+          )}
+        </footer>
+      </article>
       <img
         class="rounded shadow-2xl shadow-white/10"
         src={image}
         alt={`Captura de pantalla del proyecto ${image}`}
       />
-    </article>
+    </>
   ))
 }

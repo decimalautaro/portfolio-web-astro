@@ -11,6 +11,9 @@ import PostgresIcon from "../icons/Postgres.astro";
 import TypeOrmIcon from "../icons/TypeORM.astro";
 import TypescriptIcon from "../icons/Typescript.astro";
 import GitHub from "../icons/GitHub.astro";
+import SqliteIcon from "../icons/Sqlite.astro";
+import StripeIcon from "../icons/Stripe.astro";
+import KubernetesIcon from "../icons/Kubernetes.astro";
 import LinkButton from "../components/LinkButton.astro";
 
 const TAGS = {
@@ -42,6 +45,10 @@ const TAGS = {
     name: "Docker",
     icon: DockerIcon,
   },
+  KUBERNETES: {
+    name: "Kubernetes",
+    icon: KubernetesIcon,
+  },
   MONGODB: {
     name: "MongoDB",
     icon: MongoDBIcon,
@@ -49,6 +56,10 @@ const TAGS = {
   POSTGRES: {
     name: "PostgreSQL",
     icon: PostgresIcon,
+  },
+  SQLITE: {
+    name: "Sqlite",
+    icon: SqliteIcon,
   },
   TYPEORM: {
     name: "TypeORM",
@@ -58,9 +69,36 @@ const TAGS = {
     name: "Jest",
     icon: JestIcon,
   },
+  STRIPE: {
+    name: "Stripe",
+    icon: StripeIcon,
+  },
 };
 
 const PROJECTS = [
+  {
+    title: "Products-App",
+    description: `Desarrollé este proyecto robusto utilizando Nest.js, implementando una arquitectura de microservicios que se comunica a través de NATS.
+     La aplicación integra múltiples bases de datos, incluyendo SQLite, MongoDB y PostgreSQL, para optimizar el manejo de datos. 
+     Utilicé Google Cloud para realizar despliegues continuos (CI/CD) y gestioné la orquestación de contenedores mediante Kubernetes, 
+     garantizando escalabilidad y eficiencia en la infraestructura. Además, implementé Stripe para gestionar los pagos, 
+     utilizando webhooks para asegurar una experiencia de transacción fluida y segura. Este proyecto combina tecnología moderna y 
+     buenas prácticas de desarrollo para ofrecer una experiencia de usuario efectiva.`,
+
+    github:
+      "https://github.com/Nestjs-Microservices-Lautaro-Decima/products-launcher",
+    image: "/projects/microservicios-nestjs.webp",
+    tags: [
+      TAGS.NESTJS,
+      TAGS.TYPESCRIPT,
+      TAGS.DOCKER,
+      TAGS.KUBERNETES,
+      TAGS.POSTGRES,
+      TAGS.SQLITE,
+      TAGS.MONGODB,
+      TAGS.STRIPE,
+    ],
+  },
   {
     title: "App de colas - Websockets",
     description: `Esta aplicación de colas con websockets funciona como un sistema de turnos,

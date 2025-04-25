@@ -16,7 +16,7 @@ const { description, title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
@@ -24,7 +24,7 @@ const { description, title } = Astro.props;
   <body>
     <div class="relative h-full w-full bg-slate-950">
       <div
-        class="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"
+        class="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))] md:h-[700px] md:w-[700px] md:left-[-10%] md:top-[-20%]"
       >
       </div>
     </div>
@@ -49,6 +49,19 @@ const { description, title } = Astro.props;
     min-height: 100vh;
     overscroll-behavior: none;
     position: relative;
+  }
+
+  /* Ajustes para pantallas pequeñas */
+  @media (max-width: 768px) {
+    body {
+      padding: 0 1rem;
+    }
+    .bg-slate-950 > div {
+      top: -5%;
+      left: -30%;
+      width: 300px;
+      height: 300px;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {

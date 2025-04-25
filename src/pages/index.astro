@@ -19,16 +19,19 @@ import AboutMe from "../components/AboutMe.astro";
   description="Contrata a Lautaro Décima para crear tu aplicacion web."
 >
   <main class="px-4">
-    <SectionContainer class="py-44 pb-32">
+    <SectionContainer
+      class="py-20 md:py-44 pb-16 md:pb-32 text-center md:text-left"
+    >
       <img
-        class="rounded-full size-24 mb-4"
+        class="rounded-full w-32 h-32 md:w-48 md:h-48 mx-auto md:mx-0 mb-4"
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7Z5XPeQmFv4V2iGYn6hsT-e0D8o4NtlUXeQ&s"
         alt="foto perfil"
       />
       <h1
-        class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
+        class="text-white text-2xl md:text-4xl lg:text-5xl font-bold flex flex-col md:flex-row gap-y-4 md:gap-x-4 pb-4 md:pb-10"
       >
-        Hola, soy Lautaro Décima <a
+        Hola, soy Lautaro Décima
+        <a
           href="http://linkedin.com/in/lautarodecima"
           target="_blank"
           rel="noopener"
@@ -37,18 +40,23 @@ import AboutMe from "../components/AboutMe.astro";
           <Badge>Disponible para trabajar</Badge>
         </a>
       </h1>
-      <h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
+      <h2
+        class="text-lg md:text-xl lg:text-2xl text-wrap max-w-[90%] md:max-w-[700px] mx-auto md:mx-0"
+      >
         <span class="text-yellow-200/90">Desarrollador Full Stack</span> de Mendoza,
         Argentina, con un enfoque especializado en
         <span class="text-yellow-200/90">Desarrollo Back end.</span>
         <span>
           <br />
-          Cuento con 2 años y medio de experiencia en proyectos de desarrollo, donde he contribuido
-          significativamente en la creación y optimización de sistemas y aplicaciones.
+          Cuento con 2 años y medio de experiencia en proyectos de desarrollo, donde
+          he contribuido significativamente en la creación y optimización de sistemas
+          y aplicaciones.
         </span>
       </h2>
 
-      <nav class="flex gap-4 mt-8 flex-wrap">
+      <nav
+        class="flex flex-col md:flex-row gap-4 mt-8 flex-wrap justify-center md:justify-start"
+      >
         <SocialPill href="http://linkedin.com/in/lautarodecima">
           <LinkedInIcon class="size-4 md:size-6" />
           LinkedIn
@@ -65,24 +73,30 @@ import AboutMe from "../components/AboutMe.astro";
     </SectionContainer>
 
     <SectionContainer id="experience">
-      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 item-center">
-        <Briefcase class="size-7" />
+      <h2
+        class="text-2xl md:text-3xl font-semibold mb-6 flex gap-x-3 items-center justify-center md:justify-start"
+      >
+        <Briefcase class="size-6 md:size-7" />
         Experiencia laboral
       </h2>
       <Experience />
     </SectionContainer>
 
     <SectionContainer id="projects">
-      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 item-center">
-        <CodeIcon class="size-7" />
+      <h2
+        class="text-2xl md:text-3xl font-semibold mb-6 flex gap-x-3 items-center justify-center md:justify-start"
+      >
+        <CodeIcon class="size-6 md:size-7" />
         Proyectos
       </h2>
       <Projects />
     </SectionContainer>
 
     <SectionContainer id="about">
-      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 item-center">
-        <UserProfileIcon class="size-7" />
+      <h2
+        class="text-2xl md:text-3xl font-semibold mb-6 flex gap-x-3 items-center justify-center md:justify-start"
+      >
+        <UserProfileIcon class="size-6 md:size-7" />
         Sobre mi
       </h2>
       <AboutMe />

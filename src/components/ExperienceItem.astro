@@ -39,5 +39,5 @@ const { title, description, date } = Astro.props;
 <div
   class="mb-4 text-sm md:text-base font-normal text-gray-200 text-pretty m-4"
 >
-  {description.map((paragraph) => <p class="mb-2">{paragraph}</p>)}
+  {description.map((paragraph) => <p set:html={paragraph} class="mb-2">{paragraph}</p>)}
 </div>

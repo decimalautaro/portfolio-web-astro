@@ -12,7 +12,7 @@ const { description, title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -43,7 +43,10 @@ const { description, title } = Astro.props;
     scroll-behavior: smooth;
   }
   body {
+    /* Fondo oscuro por defecto: forzamos el estilo inicial (oscuro). */
     background: #050505;
+    /* Color de texto claro por defecto para que títulos y contenido sean visibles */
+    color: #e2e8f0; /* slate-200 */
     display: flex;
     flex-direction: column;
     min-height: 100vh;

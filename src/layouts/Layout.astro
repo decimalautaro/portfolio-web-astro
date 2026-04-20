@@ -22,7 +22,7 @@ const { description, title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <div class="relative h-full w-full bg-slate-950">
+    <div class="fixed inset-0 -z-10 h-full w-full">
       <div
         class="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))] md:h-[700px] md:w-[700px] md:left-[-10%] md:top-[-20%]"
       >
@@ -71,5 +71,13 @@ const { description, title } = Astro.props;
     html {
       scroll-behavior: auto;
     }
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 </style>

@@ -28,7 +28,7 @@ import AboutMe from "../components/AboutMe.astro";
         alt="foto perfil"
       />
       <h1
-        class="text-white text-2xl md:text-4xl lg:text-5xl font-bold flex flex-col md:flex-row gap-y-4 md:gap-x-4 pb-4 md:pb-10"
+        class="text-white text-2xl md:text-4xl lg:text-5xl font-bold flex flex-col md:flex-row gap-y-4 md:gap-x-4 pb-4 md:pb-10 justify-center md:justify-start items-center md:items-start"
       >
         Hola, soy Lautaro Décima
         <a
@@ -41,13 +41,16 @@ import AboutMe from "../components/AboutMe.astro";
         </a>
       </h1>
       <h2
-        class="text-lg md:text-xl lg:text-2xl text-wrap max-w-[90%] md:max-w-[700px] mx-auto md:mx-0"
+        class="text-lg md:text-xl lg:text-2xl text-wrap max-w-[90%] md:max-w-[700px] mx-auto md:mx-0 leading-relaxed text-center md:text-left"
       >
-        <span class="text-yellow-200/90">Desarrollador Full Stack</span> de Mendoza,
-        Argentina, con un enfoque especializado en
-        <span class="text-yellow-200/90">Desarrollo Back end.</span>
+        <span class="text-yellow-200/90 font-semibold"
+          >Desarrollador Full Stack</span
+        > de Mendoza, Argentina, con un enfoque especializado en
+        <span class="text-yellow-200/90 font-semibold"
+          >Desarrollo Back end.</span
+        >
         <span>
-          <br />
+          <br /><br />
           Cuento con 3 años y medio de experiencia en proyectos de desarrollo, donde
           he contribuido significativamente en la creación y optimización de sistemas
           y aplicaciones.
@@ -63,7 +66,9 @@ import AboutMe from "../components/AboutMe.astro";
           >
             Experiencia laboral
           </h2>
-          <Experience />
+          <div class="text-left">
+            <Experience />
+          </div>
         </SectionContainer>
 
         <SectionContainer id="projects" class="scroll-mt-32">

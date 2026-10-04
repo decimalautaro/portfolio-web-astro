@@ -14,6 +14,11 @@ import GitHub from "../icons/GitHub.astro";
 import SqliteIcon from "../icons/Sqlite.astro";
 import StripeIcon from "../icons/Stripe.astro";
 import KubernetesIcon from "../icons/Kubernetes.astro";
+import AngularIcon from "../icons/Angular.astro";
+import ReactIcon from "../icons/React.astro";
+import RedisIcon from "../icons/Redis.astro";
+import ExternalLinkIcon from "../icons/ExternalLink.astro";
+import NginxIcon from "../icons/Nginx.astro";
 import LinkButton from "../components/LinkButton.astro";
 
 const TAGS = {
@@ -73,9 +78,67 @@ const TAGS = {
     name: "Stripe",
     icon: StripeIcon,
   },
+  ANGULAR: {
+    name: "Angular",
+    icon: AngularIcon,
+  },
+  REACT: {
+    name: "React",
+    icon: ReactIcon,
+  },
+  REDIS: {
+    name: "Redis",
+    icon: RedisIcon,
+  },
+  NGINX: {
+    name: "nginx",
+    icon: NginxIcon,
+  },
 };
 
 const PROJECTS = [
+  {
+    title: "Recuerdos Digitales",
+    badge: "En producción",
+    description: `Plataforma SaaS multi-tenant, desarrollada y mantenida en producción, para la venta de fotos de empresas de turismo de aventura.
+                  El frontend está construido en React 19 + Vite con Radix UI, Tailwind CSS y soporte PWA; el backend en NestJS con Prisma sobre PostgreSQL,
+                  Redis y colas BullMQ. Entre los desafíos técnicos que resolví: multi-tenancy mediante un middleware y AsyncLocalStorage para aislar
+                  el contexto de cada empresa en cada request; importación de fotos desde Dropbox en segundo plano con Bull Board; procesamiento de imágenes
+                  con Sharp ejecutado en un pool de worker threads (Piscina) para aplicar watermark sin bloquear el event loop; pagos con Mercado Pago
+                  (checkout y webhook firmado); y entrega de fotos en alta resolución mediante links con expiración de 7 días por email y WhatsApp,
+                  con templates Handlebars. Se completan con cupones por guía, roles y permisos, rate limiting y cifrado de credenciales por tenant.
+                  El despliegue en producción corre sobre Docker Compose con un reverse proxy en nginx (SSL con certbot, cacheo de assets,
+                  compresión y proxy inverso hacia frontend y backend), con backups de PostgreSQL mediante pg_dump.`,
+    image: "/projects/recuerdos-digitales.webp",
+    link: "https://recuerdos-digitales.com/argentina-rafting",
+    tags: [
+      TAGS.REACT,
+      TAGS.NESTJS,
+      TAGS.TYPESCRIPT,
+      TAGS.POSTGRES,
+      TAGS.REDIS,
+      TAGS.NGINX,
+      TAGS.DOCKER,
+    ],
+  },
+  {
+    title: "Mis Finanzas",
+    badge: "En producción",
+    description: `Aplicación full stack para el control y seguimiento de finanzas personales, desarrollada con Angular 22 en el frontend y
+                  NestJS con Prisma sobre PostgreSQL en el backend. Permite registrar ingresos y gastos con categorías y recurrencia,
+                  visualizar el balance mensual y la tasa de ahorro con gráficos en Chart.js, y administrar "reservas" de ahorro con su propio TNA,
+                  generando el devengamiento de interés compuesto día a día. Implementé autenticación con JWT, validación global de DTOs y un módulo
+                  de IA que interpreta comandos de voz en español para registrar movimientos sin usar las manos. Es una PWA con service worker y
+                  modo oscuro, con notas/checklist integradas, despliegue automatizado con Docker + nginx y backups de PostgreSQL con pg_dump.`,
+    image: "/projects/finanzas.webp",
+    tags: [
+      TAGS.ANGULAR,
+      TAGS.NESTJS,
+      TAGS.TYPESCRIPT,
+      TAGS.POSTGRES,
+      TAGS.DOCKER,
+    ],
+  },
   {
     title: "Products-App",
     description: `Desarrollé este proyecto robusto utilizando Nest.js, implementando una arquitectura de microservicios que se comunica a través de NATS.
@@ -168,7 +231,7 @@ const PROJECTS = [
 
 <div class="grid gap-8 md:gap-12">
   {
-    PROJECTS.map(({ title, description, tags, image, github }) => (
+    PROJECTS.map(({ title, description, tags, image, github, link, badge }) => (
       <article class="flex flex-col md:flex-row items-start gap-6">
         <img
           class="rounded shadow-2xl shadow-white/10 w-full md:w-1/3"
@@ -176,8 +239,15 @@ const PROJECTS = [
           alt={`Captura de pantalla del proyecto ${title}`}
         />
         <div class="flex-1">
-          <h3 class="text-xl md:text-2xl font-semibold text-yellow-200 mb-2">
+          <h3
+            class="text-xl md:text-2xl font-semibold text-yellow-200 mb-2 flex flex-wrap items-center gap-x-3 gap-y-2"
+          >
             {title}
+            {badge && (
+              <span class="rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-400/30 text-xs font-medium px-3 py-1">
+                {badge}
+              </span>
+            )}
           </h3>
           <p class="text-sm md:text-base text-pretty mb-4">{description}</p>
           <div class="flex flex-col items-center gap-4 mb-4">
@@ -191,11 +261,21 @@ const PROJECTS = [
                 </li>
               ))}
             </ul>
-            {github && (
-              <LinkButton href={github} class="mt-4">
-                <GitHub class="size-5 md:size-6" />
-                Code
-              </LinkButton>
+            {(github || link) && (
+              <div class="flex flex-wrap items-center justify-center gap-4 mt-4">
+                {github && (
+                  <LinkButton href={github}>
+                    <GitHub class="size-5 md:size-6" />
+                    Code
+                  </LinkButton>
+                )}
+                {link && (
+                  <LinkButton href={link}>
+                    <ExternalLinkIcon class="size-5 md:size-6" />
+                    Sitio web
+                  </LinkButton>
+                )}
+              </div>
             )}
           </div>
         </div>

@@ -19,6 +19,7 @@ import ReactIcon from "../icons/React.astro";
 import RedisIcon from "../icons/Redis.astro";
 import ExternalLinkIcon from "../icons/ExternalLink.astro";
 import NginxIcon from "../icons/Nginx.astro";
+import N8nIcon from "../icons/N8n.astro";
 import LinkButton from "../components/LinkButton.astro";
 
 const TAGS = {
@@ -94,6 +95,10 @@ const TAGS = {
     name: "nginx",
     icon: NginxIcon,
   },
+  N8N: {
+    name: "n8n",
+    icon: N8nIcon,
+  },
 };
 
 const PROJECTS = [
@@ -108,7 +113,9 @@ const PROJECTS = [
                   (checkout y webhook firmado); y entrega de fotos en alta resolución mediante links con expiración de 7 días por email y WhatsApp,
                   con templates Handlebars. Se completan con cupones por guía, roles y permisos, rate limiting y cifrado de credenciales por tenant.
                   El despliegue en producción corre sobre Docker Compose con un reverse proxy en nginx (SSL con certbot, cacheo de assets,
-                  compresión y proxy inverso hacia frontend y backend), con backups de PostgreSQL mediante pg_dump.`,
+                  compresión y proxy inverso hacia frontend y backend), con backups de PostgreSQL mediante pg_dump.
+                  Además, integré n8n como automatización: cuando se genera una orden, el backend notifica vía webhook a un workflow
+                  de n8n que envía un mensaje a Telegram a los administradores con los detalles de la compra.`,
     image: "/projects/recuerdos-digitales.webp",
     link: "https://recuerdos-digitales.com/argentina-rafting",
     tags: [
@@ -118,6 +125,7 @@ const PROJECTS = [
       TAGS.POSTGRES,
       TAGS.REDIS,
       TAGS.NGINX,
+      TAGS.N8N,
       TAGS.DOCKER,
     ],
   },
